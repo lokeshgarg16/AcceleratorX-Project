@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-sand-50 font-body antialiased;
+    background-image: radial-gradient(circle at top, rgba(245, 158, 11, 0.10), transparent 28%), radial-gradient(circle at right, rgba(125, 211, 252, 0.10), transparent 24%);
+  }
+
+  a {
+    @apply transition-colors;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-glow;
+  }
+
+  .hero-ring {
+    position: relative;
+  }
+
+  .hero-ring::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 1.5rem;
+    padding: 1px;
+    background: linear-gradient(145deg, rgba(245,158,11,0.5), rgba(56,189,248,0.18), rgba(255,255,255,0));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .page-shell {
+    @apply min-h-screen bg-aurora-grid;
+  }
+
+  .section-label {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sand-200;
+  }
+
+  .primary-button {
+    @apply inline-flex items-center justify-center rounded-full bg-accent-500 px-5 py-3 font-semibold text-ink-950 transition hover:bg-accent-600;
+  }
+
+  .secondary-button {
+    @apply inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-3 font-semibold text-sand-50 transition hover:bg-white/10;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-white/10 bg-ink-900/80 px-4 py-3 text-sand-50 outline-none transition placeholder:text-sand-200/40 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20;
+  }
+
+  .select-field {
+    @apply w-full rounded-2xl border border-white/10 bg-ink-900/80 px-4 py-3 text-sand-50 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20;
+  }
+}
